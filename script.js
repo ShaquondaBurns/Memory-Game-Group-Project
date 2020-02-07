@@ -16,6 +16,30 @@ let cardArray = [
   {
     name: "cat",
     imgSrc: "litterbox.jpg"
+  },
+  {
+    name: "bird",
+    imgSrc: "bird.jpg"
+  },
+  {
+    name: "bird",
+    imgSrc: "bird cage.jpg"
+  },
+  {
+    name: "fish",
+    imgSrc: "fishpet.jpeg"
+  },
+  {
+    name: "fish",
+    imgSrc: "fish bowl.jpg"
+  },
+  {
+    name: "lizard",
+    imgSrc: "lizard.jpg"
+  },
+  {
+    name: "lizard",
+    imgSrc: "terrarium.jpg"
   }
 ];
 
@@ -37,6 +61,7 @@ let clickedElements = [];
 function flipped(e) {
   if (clickedElements.length === 1) {
     clickedElements.push(e.target.parentNode.getAttribute("data-name"));
+
     for (let element of clickedElements) {
       console.log(element);
     }
