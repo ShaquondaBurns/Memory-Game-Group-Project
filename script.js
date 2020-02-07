@@ -23,22 +23,19 @@ cardArray.forEach(card => {
   let cardDiv = document.createElement("div");
   let img = document.createElement("img");
 
-  cardDiv.setAttribute("name", "img");
+  cardDiv.setAttribute("data-name", card.name);
   img.setAttribute("src", card.imgSrc);
   cardDiv.append(img);
-
+  cardDiv.classList.add("front");
   container.append(cardDiv);
 });
 
-
-  container.addEventListener("click", flipped);
-
+container.addEventListener("click", flipped);
 
 function flipped(e) {
-  if (e.target.classList.contains("front")) {
-    console.log("hey");
-
-    e.target.classList.remove("front");
-    e.target.classList.add("back");
+  // console.log("hey");
+  e.target.classList.add("back");
+  if (e.target.getAttribute("data-name")) {
+    console.log(e.target.getAttribute("data-name"));
   }
 }

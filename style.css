@@ -1,14 +1,12 @@
-
 .card {
-    height: 100px;
-    width: 100px;
-  }
-  
-  .front {
-    background-color: blue;
-  }
-  
-  .back {
-    background-color: red;
-  }
-  
+  height: 100px;
+  width: 100px;
+}
+
+.front {
+  background-color: blue;
+}
+
+.back {
+  /* display: none; */
+}
