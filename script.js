@@ -32,10 +32,15 @@ cardArray.forEach(card => {
 
 container.addEventListener("click", flipped);
 
+// let counter = 0;
+let clickedElements = [];
 function flipped(e) {
-  // console.log("hey");
-  e.target.classList.add("back");
-  if (e.target.getAttribute("data-name")) {
-    console.log(e.target.getAttribute("data-name"));
+  if (clickedElements.length === 1) {
+    clickedElements.push(e.target.parentNode.getAttribute("data-name"));
+    for (let element of clickedElements) {
+      console.log(element);
+    }
+  } else if (e.target.localName === "img") {
+    clickedElements.push(e.target.parentNode.getAttribute("data-name"));
   }
 }
