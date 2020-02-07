@@ -1,71 +1,93 @@
-let container = document.querySelector(".card-container");
-
-let cardArray = [
+let animals = [
   {
     name: "dog",
-    imgSrc: "dalmatian.jpg"
+    imgSrc: "assets/dalmatian.jpg"
   },
 
   {
     name: "dog",
-    imgSrc: "dalmationdoghouse.jpg"
+    imgSrc: "assets/dalmationdoghouse.jpg"
   },
 
-  { name: "cat", imgSrc: "cat.jpg" },
+  { name: "cat", imgSrc: "assets/cat.jpg" },
 
   {
     name: "cat",
-    imgSrc: "litterbox.jpg"
+    imgSrc: "assets/litterbox.jpg"
   },
   {
     name: "bird",
-    imgSrc: "bird.jpg"
+    imgSrc: "assets/bird.jpg"
   },
   {
     name: "bird",
-    imgSrc: "bird cage.jpg"
+    imgSrc: "assets/birdcage.jpg"
   },
   {
     name: "fish",
-    imgSrc: "fishpet.jpeg"
+    imgSrc: "assets/fishpet.jpg"
   },
   {
     name: "fish",
-    imgSrc: "fish bowl.jpg"
+    imgSrc: "assets/fishbowl.jpg"
   },
   {
     name: "lizard",
-    imgSrc: "lizard.jpg"
+    imgSrc: "assets/lizard.jpg"
   },
   {
     name: "lizard",
-    imgSrc: "terrarium.jpg"
+    imgSrc: "assets/terrarium.jpg"
+  },
+  {
+    name: "guinea",
+    imgSrc: "assets/guinea.jpg"
+  },
+  {
+    name: "guinea",
+    imgSrc: "assets/guineawheel.jpg"
   }
 ];
 
-cardArray.forEach(card => {
-  let cardDiv = document.createElement("div");
-  let img = document.createElement("img");
+let gameboard = document.querySelector("#gameboard");
 
-  cardDiv.setAttribute("data-name", card.name);
-  img.setAttribute("src", card.imgSrc);
-  cardDiv.append(img);
-  cardDiv.classList.add("front");
-  container.append(cardDiv);
-});
+for (let animal of animals) {
+  let container = document.createElement("section");
+  container.classList.add("container");
+  let card = document.createElement("div");
+  card.classList.add("card");
+  card.setAttribute("data-name", animal.name);
+  let front = document.createElement("div");
+  front.classList.add("front");
+  let back = document.createElement("div");
+  back.style.backgroundImage = `url(${animal.imgSrc})`;
+  back.style.backgroundPosition = "center";
+  back.style.backgroundSize = "cover";
+  back.classList.add("back");
+  card.append(front, back);
+  container.append(card);
+  gameboard.append(container);
+}
 
-container.addEventListener("click", flipped);
+gameboard.addEventListener("click", flipped);
 
-// let counter = 0;
 let clickedElements = [];
-function flipped(e) {
-  if (clickedElements.length === 1) {
-    clickedElements.push(e.target.parentNode.getAttribute("data-name"));
 
-    for (let element of clickedElements) {
-      console.log(element);
+function flipped(event) {
+  console.log(event);
+  if (event.target.className === "front" && clickedElements.length === 1) {
+    event.target.parentNode.classList.add("flipped");
+    clickedElements.push(event.target.parentNode);
+    if (
+      clickedElements[0].getAttribute("data-name") ===
+      clickedElements[1].getAttribute("data-name")
+    ) {
+      console.log("SAME");
+    } else {
+      console.log("Not the same");
     }
-  } else if (e.target.localName === "img") {
-    clickedElements.push(e.target.parentNode.getAttribute("data-name"));
+  } else if (event.target.className === "front") {
+    event.target.parentNode.classList.add("flipped");
+    clickedElements.push(event.target.parentNode);
   }
 }
