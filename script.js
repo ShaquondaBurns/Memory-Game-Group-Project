@@ -92,8 +92,8 @@ function flipped(event) {
       setTimeout(function() {
         clickedElements[0].classList.remove("flipped");
         clickedElements[1].classList.remove("flipped");
-        clickedElements = [0];
-      }, 2000);
+        clickedElements = [];
+      }, 1000);
       console.log("Nah, try again!");
     }
   } else if (event.target.className === "front") {
@@ -101,3 +101,8 @@ function flipped(event) {
     clickedElements.push(event.target.parentNode);
   }
 }
+
+// *** QUESTIONS ***
+
+//  the clickedElements array is set up to where it will only accept two cards yes?
+// how do i let the same card be clicked only once? if I click on the same card twice it will disappear because it has the same data-name...
