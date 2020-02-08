@@ -50,7 +50,8 @@ let animals = [
 ];
 
 let gameboard = document.querySelector("#gameboard");
-
+// we want the array of cards to be set to random
+animals.sort(() => 0.5 - Math.random());
 for (let animal of animals) {
   let container = document.createElement("section");
   container.classList.add("container");
