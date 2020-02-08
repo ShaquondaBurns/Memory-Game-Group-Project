@@ -51,7 +51,7 @@ let animals = [
 
 let gameboard = document.querySelector("#gameboard");
 // we want the array of cards to be set to random
-animals.sort(() => 0.5 - Math.random());
+// animals.sort(() => 0.5 - Math.random());
 for (let animal of animals) {
   let container = document.createElement("section");
   container.classList.add("container");
@@ -73,7 +73,6 @@ for (let animal of animals) {
 gameboard.addEventListener("click", flipped);
 
 let clickedElements = [];
-
 function flipped(event) {
   console.log(event);
   if (event.target.className === "front" && clickedElements.length === 1) {
@@ -83,9 +82,19 @@ function flipped(event) {
       clickedElements[0].getAttribute("data-name") ===
       clickedElements[1].getAttribute("data-name")
     ) {
-      console.log("SAME");
+      // if the above statement is true --- then don't display the 2 matching cards that were clicked
+      clickedElements[0].style.display = "none";
+      clickedElements[1].style.display = "none";
+      // reset the array that the cards are being pushed to to zero so you can push 2 new matching cards
+      clickedElements = [];
+      console.log("GOT EM!");
     } else {
-      console.log("Not the same");
+      setTimeout(function() {
+        clickedElements[0].classList.remove("flipped");
+        clickedElements[1].classList.remove("flipped");
+        clickedElements = [0];
+      }, 2000);
+      console.log("Nah, try again!");
     }
   } else if (event.target.className === "front") {
     event.target.parentNode.classList.add("flipped");

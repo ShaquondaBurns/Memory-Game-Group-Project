@@ -47,7 +47,7 @@ body {
   backface-visibility: hidden;
 }
 .card .front {
-  background: red;
+  background: skyblue;
 }
 .card .back {
   background: blue;
