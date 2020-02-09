@@ -72,12 +72,17 @@ for (let animal of animals) {
 
 gameboard.addEventListener("click", flipped);
 
+let count = 0;
+
 let clickedElements = [];
+
 function flipped(event) {
   console.log(event);
+
   if (event.target.className === "front" && clickedElements.length === 1) {
     event.target.parentNode.classList.add("flipped");
     clickedElements.push(event.target.parentNode);
+
     if (
       clickedElements[0].getAttribute("data-name") ===
       clickedElements[1].getAttribute("data-name")
@@ -104,5 +109,5 @@ function flipped(event) {
 
 // *** QUESTIONS ***
 
-//  the clickedElements array is set up to where it will only accept two cards yes?
+//  the clickedElements array is set up to where it will only accept two cards yes? Thats why you have to set it to empty again on line 89?
 // how do i let the same card be clicked only once? if I click on the same card twice it will disappear because it has the same data-name...

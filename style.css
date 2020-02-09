@@ -47,10 +47,11 @@ body {
   backface-visibility: hidden;
 }
 .card .front {
-  background: skyblue;
+  background-image: url(assets/card.background.jpg);
+  background-size: cover;
 }
 .card .back {
-  background: blue;
+  background: whitesmoke;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
