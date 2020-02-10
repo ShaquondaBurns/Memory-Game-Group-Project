@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Our Memory Game</title>
-  </head>
-  <body>
-    <main id="gameboard"></main>
-    <script
-      src="https://kit.fontawesome.com/a628211a57.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Our Memory Game</title>
+  <button onclick="startTimer">Start</button>
+</head>
+
+<body>
+  <label id="minutes">00</label>:<label id="seconds">00</label>
+  <main id="gameboard"></main>
+  <script src="https://kit.fontawesome.com/a628211a57.js" crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+</body>
+
 </html>

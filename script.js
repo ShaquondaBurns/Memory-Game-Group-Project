@@ -1,5 +1,4 @@
-let animals = [
-  {
+let animals = [{
     name: "dog",
     imgSrc: "assets/dalmatian.jpg"
   },
@@ -9,7 +8,10 @@ let animals = [
     imgSrc: "assets/dalmationdoghouse.jpg"
   },
 
-  { name: "cat", imgSrc: "assets/cat.jpg" },
+  {
+    name: "cat",
+    imgSrc: "assets/cat.jpg"
+  },
 
   {
     name: "cat",
@@ -49,6 +51,27 @@ let animals = [
   }
 ];
 
+
+let minutesLabel = document.getElementById("minutes");
+let secondsLabel = document.getElementById("seconds");
+let totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  let valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+
 let gameboard = document.querySelector("#gameboard");
 // we want the array of cards to be set to random
 // animals.sort(() => 0.5 - Math.random());
@@ -87,14 +110,16 @@ function flipped(event) {
       clickedElements[0].getAttribute("data-name") ===
       clickedElements[1].getAttribute("data-name")
     ) {
-      // if the above statement is true --- then don't display the 2 matching cards that were clicked
-      clickedElements[0].style.display = "none";
-      clickedElements[1].style.display = "none";
-      // reset the array that the cards are being pushed to to zero so you can push 2 new matching cards
-      clickedElements = [];
+      setTimeout(function () {
+        // if the above statement is true --- then don't display the 2 matching cards that were clicked
+        clickedElements[0].style.display = "none";
+        clickedElements[1].style.display = "none";
+        // reset the array that the cards are being pushed to to zero so you can push 2 new matching cards
+        clickedElements = [];
+      }, 1500);
       console.log("GOT EM!");
     } else {
-      setTimeout(function() {
+      setTimeout(function () {
         clickedElements[0].classList.remove("flipped");
         clickedElements[1].classList.remove("flipped");
         clickedElements = [];
