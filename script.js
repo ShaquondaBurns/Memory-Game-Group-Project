@@ -49,6 +49,41 @@ let animals = [
   }
 ];
 
+
+// let button = document.querySelector("button");
+let c = 2;
+function myCounter() {
+  
+  document.getElementById("demo").innerHTML = --c;
+  if (c === 0){
+alert("Sorry, you ran out of time");
+clearInterval(myTimer);
+
+}
+}
+
+// let minutesLabel = document.getElementById("minutes");
+// let secondsLabel = document.getElementById("seconds");
+// let totalSeconds = 0;
+// setInterval(setTime, 1000);
+// function setTime() {
+//   if
+//   event.target.classList("start");
+//   ++totalSeconds;
+//   secondsLabel.innerHTML = pad(totalSeconds % 60);
+//   minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+// }
+// function pad(val) {
+//   var valString = val + "";
+//   if (valString.length < 2) {
+//     return "0" + valString;
+//   } else {
+//     return valString;
+//   }
+// }
+
+
+
 let gameboard = document.querySelector("#gameboard");
 // we want the array of cards to be set to random
 // animals.sort(() => 0.5 - Math.random());
@@ -69,6 +104,7 @@ for (let animal of animals) {
   container.append(card);
   gameboard.append(container);
 }
+
 
 gameboard.addEventListener("click", flipped);
 
