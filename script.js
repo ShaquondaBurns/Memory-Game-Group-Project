@@ -1,4 +1,7 @@
-let animals = [{
+let matches = 0;
+
+let animals = [
+  {
     name: "dog",
     imgSrc: "assets/dalmatian.jpg"
   },
@@ -51,22 +54,18 @@ let animals = [{
   }
 ];
 
-
-// let button = document.querySelector("button");
-let c = 10;
+let c = 0;
 function myCounter() {
-  
-  document.getElementById("demo").innerHTML = --c;
-  if (c === 0){
-alert("Sorry, you ran out of time");
-clearInterval(myTimer);
-c=10;
-
-
+  if (c < 60 && matches < 6) {
+    document.getElementById("demo").innerHTML = ++c;
+  } else if (matches === 6) {
+    alert("Youve won");
+  } else if (c === 60) {
+    alert("Sorry, you ran out of time");
+    clearInterval(myTimer);
+    c = 0;
+  }
 }
-}
-
-
 
 let gameboard = document.querySelector("#gameboard");
 // we want the array of cards to be set to random
@@ -89,10 +88,7 @@ for (let animal of animals) {
   gameboard.append(container);
 }
 
-
 gameboard.addEventListener("click", flipped);
-
-let count = 0;
 
 let clickedElements = [];
 
@@ -107,7 +103,8 @@ function flipped(event) {
       clickedElements[0].getAttribute("data-name") ===
       clickedElements[1].getAttribute("data-name")
     ) {
-      setTimeout(function () {
+      matches++;
+      setTimeout(function() {
         // if the above statement is true --- then don't display the 2 matching cards that were clicked
         clickedElements[0].style.display = "none";
         clickedElements[1].style.display = "none";
@@ -116,7 +113,7 @@ function flipped(event) {
       }, 1500);
       console.log("GOT EM!");
     } else {
-      setTimeout(function () {
+      setTimeout(function() {
         clickedElements[0].classList.remove("flipped");
         clickedElements[1].classList.remove("flipped");
         clickedElements = [];
@@ -129,8 +126,10 @@ function flipped(event) {
   }
 }
 
-
 // *** QUESTIONS ***
 
 //  the clickedElements array is set up to where it will only accept two cards yes? Thats why you have to set it to empty again on line 89?
 // how do i let the same card be clicked only once? if I click on the same card twice it will disappear because it has the same data-name...
+
+// time > 0 matches <6 count down
+// else if matches === 6; youve won the game
