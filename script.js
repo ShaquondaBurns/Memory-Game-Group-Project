@@ -53,36 +53,18 @@ let animals = [{
 
 
 // let button = document.querySelector("button");
-let c = 2;
+let c = 10;
 function myCounter() {
   
   document.getElementById("demo").innerHTML = --c;
   if (c === 0){
 alert("Sorry, you ran out of time");
 clearInterval(myTimer);
+c=10;
+
 
 }
 }
-
-// let minutesLabel = document.getElementById("minutes");
-// let secondsLabel = document.getElementById("seconds");
-// let totalSeconds = 0;
-// setInterval(setTime, 1000);
-// function setTime() {
-//   if
-//   event.target.classList("start");
-//   ++totalSeconds;
-//   secondsLabel.innerHTML = pad(totalSeconds % 60);
-//   minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-// }
-// function pad(val) {
-//   var valString = val + "";
-//   if (valString.length < 2) {
-//     return "0" + valString;
-//   } else {
-//     return valString;
-//   }
-// }
 
 
 
