@@ -59,7 +59,7 @@ function myCounter() {
   if (c < 60 && matches < 6) {
     document.getElementById("demo").innerHTML = ++c;
   } else if (matches === 6) {
-    alert("Youve won");
+    alert("You've won! Great job!");
   } else if (c === 60) {
     alert("Sorry, you ran out of time");
     clearInterval(myTimer);
@@ -110,7 +110,7 @@ function flipped(event) {
         clickedElements[1].style.display = "none";
         // reset the array that the cards are being pushed to to zero so you can push 2 new matching cards
         clickedElements = [];
-      }, 1500);
+      }, 1000);
       console.log("GOT EM!");
     } else {
       setTimeout(function() {
