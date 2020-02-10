@@ -55,7 +55,7 @@ let animals = [{
 let minutesLabel = document.getElementById("minutes");
 let secondsLabel = document.getElementById("seconds");
 let totalSeconds = 0;
-setInterval(setTime, 1000);
+setInterval(setTime, 1299);
 
 function setTime() {
   ++totalSeconds;
@@ -131,6 +131,7 @@ function flipped(event) {
     clickedElements.push(event.target.parentNode);
   }
 }
+
 
 // *** QUESTIONS ***
 
