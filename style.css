@@ -1,20 +1,20 @@
 body {
   margin: 0;
-  background-color: whitesmoke;
+  background-color: #ccc;
 }
 
 #gameboard {
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .container {
   width: 32%;
   height: 260px;
   position: relative;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
+  margin: 1px;
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   -o-perspective: 800px;
